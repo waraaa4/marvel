@@ -9,12 +9,13 @@ spring:
     username: bootuser
     password: 1234
   # cache값을 사용하지 않겠다는 의미
+  devtools:
+    livereload:
+      enabled: true
+  restart:
+    enabled: true
   thymeleaf:
     cache: false
-  livereload:
-    enabled: true
-  restart:
-    enabled: ture
 
   # JPA 관련 설정, datasource: 위치와 같은 위치에 작성해줘야함.
   jpa:
