@@ -415,6 +415,7 @@ header ul li span {
     cursor: pointer;
     width: 100px;
     height: 100px;
+    top: -30px;
 }
 
 
@@ -894,10 +895,12 @@ article:last-child {
 
     .sec3_vod {
         width: 90%;
+        top: -30px;
     }
 
     .sec3_title {
-        margin-top: -5px;
+        margin-top: -0px;
+        top: -30px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -917,7 +920,7 @@ article:last-child {
         height: 450px;
         overflow: auto;
         margin-left: 0px;
-        padding-top: 30px;
+        padding-top: 0px;
         padding-bottom: 10px;
     }
 
@@ -929,6 +932,13 @@ article:last-child {
         align-items: center;
         justify-content: space-around;
         margin-bottom: 25px;
+    }
+
+    .sec3_item_play img {
+        cursor: pointer;
+        width: 100px;
+        height: 100px;
+        top: -30px;
     }
 
     .sec4_box {
@@ -988,4 +998,10 @@ footer div {
 
 footer p {
     color: white;
+}
+
+@media (max-width: 1280px) {
+    footer p {
+        margin-left: 10px;
+    }
 }
