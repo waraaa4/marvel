@@ -9,27 +9,54 @@
     <link rel="stylesheet" href="../static/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8ca221a456.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="wrap">
     <!-- 네비게이션 -->
     <header class="header">
         <nav>
-            <div>
-                <ul class="firstNav">
-                    <li><a href="index.html"><img src="../static/imgs/logo.png" alt=""></a></li>
-                    <li><a href="#">characters</a></li>
-                    <li><a href="#">movies</a></li>
-                    <li><a href="#">community</a></li>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="../static/imgs/logo.png" alt="">
+                </a>
+            </div>
+            <div class="firstNav">
+                <ul>
+                    <li>
+                        <a href="#">characters</a>
+                    </li>
+                    <li>
+                        <a href="#">movies</a>
+                    </li>
+                    <li>
+                        <a href="#">community</a>
+                    </li>
                 </ul>
             </div>
             <div class="lastNav">
                 <ul>
-                    <li><a href="#">sign in</a></li>
-                    <li><span>|</span></li>
-                    <li><a href="#">join</a></li>
-                    <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                    <li>
+                        <a href="#">sign in</a>
+                    </li>
+                    <li>
+                        <span>|</span>
+                    </li>
+                    <li>
+                        <a href="#">join</a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                    </li>
                 </ul>
+            </div>
+            <div class="ham">
+                <i class="fa-solid fa-align-justify fa-2x"></i>
+            </div>
+            <div class="ham_pop">
+                <i class="fa-solid fa-xmark fa-2x"></i>
             </div>
         </nav>
     </header>
@@ -453,23 +480,29 @@
         $(".sec3_item1").stop().fadeIn();
         $(".sec4_item_vod").stop().fadeOut();
 
-        resize();
+        win_width_event();
     });
 
     // 윈도우 리사이즈
-    $(window).resize( function() {
-        resize();
+    $(window).resize(function () {
+        win_width_event();
     });
 
-    function resize() {
-        let win_width = $(window).width();
+    function win_width_event() {
+        let win_width = $(window).width()+17;
         if (win_width <= 650) {
+            $(".firstNav").stop().fadeOut();
+            $(".lastNav").stop().fadeOut();
+            $(".ham").stop().fadeIn();
             $(".section4_characters").stop().fadeOut();
             $(".sec5_black_bg").stop().fadeOut();
             $(".sec5_box").stop().fadeOut();
             $(".section5_movie .sec_title").stop().fadeIn();
             // $(".main_img ul li:nth-child(2)").stop().fadeOut();
         } else if (win_width > 650) {
+            $(".firstNav").stop().fadeIn();
+            $(".lastNav").stop().fadeIn();
+            $(".ham").stop().fadeOut();
             $(".section4_characters").stop().fadeIn();
             $(".sec5_black_bg").stop().fadeIn();
             $(".sec5_box").stop().fadeIn();
