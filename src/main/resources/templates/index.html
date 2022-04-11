@@ -55,10 +55,20 @@
             <div class="ham">
                 <i class="fa-solid fa-align-justify fa-2x"></i>
             </div>
-            <div class="ham_pop">
-                <i class="fa-solid fa-xmark fa-2x"></i>
+            <div class="ham_close">
+                <i class="fa-solid fa-xmark fa-3x"></i>
             </div>
         </nav>
+        <div class="ham_pop">
+            <ul>
+                <li><a href="#">characters</a></li>
+                <li><a href="#">movies</a></li>
+                <li><a href="#">community</a></li>
+                <li><a href="#">sign in</a></li>
+                <li><a href="#">join</a></li>
+                <li><input type="text" class="form-control mb-2" placeholder="Search"></li>
+            </ul>
+        </div>
     </header>
 
     <!-- 섹션1 메인 이미지 -->
@@ -461,7 +471,13 @@
     <!-- 카피라이터 -->
     <footer>
         <div>
-            <p>© 2022 Choi Ji Hwan</p>
+            <div>
+                <p>© 2022 Choi Ji Hwan</p>
+            </div>
+            <div>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-solid fa-house"></i></a>
+            </div>
         </div>
     </footer>
 </div>
@@ -507,6 +523,9 @@
             $(".sec5_black_bg").stop().fadeIn();
             $(".sec5_box").stop().fadeIn();
             $(".section5_movie .sec_title").stop().fadeOut();
+
+            $(".ham_close").stop().fadeOut();
+            $(".ham_pop").stop().fadeOut();
         }
     }
 
@@ -529,6 +548,20 @@
             }).stop()
         }
     });
+
+    // 네비게이션 햄 버튼 클릭
+    $(".ham").click(function (){
+        $(".ham_close").stop().fadeIn();
+        $(".ham_pop").stop().fadeIn();
+        $(".ham").stop().fadeOut();
+    });
+    // 네비게이션 햄 클로즈 버튼 클릭
+    $(".ham_close").click(function (){
+        $(".ham_close").stop().fadeOut();
+        $(".ham_pop").stop().fadeOut();
+        $(".ham").stop().fadeIn();
+    });
+
 
     // 섹션3 유튜브 스크롤
     (function ($) {
