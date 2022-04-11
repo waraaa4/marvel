@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        const update = () => {
+            // console.log("함수호출")
+            const id = document.getElementById("memberId").value
+            const email = document.getElementById("memberEmail").value
+            const name = document.getElementById("memberName").value
+            const phone = document.getElementById("memberPhone").value
+            const filename = document.getElementById("memberFilename").value
+            const inputPw = document.getElementById("memberPassword").value
+            const DBPw = "[[${member.memberPassword}]]"
+            // console.log(id, email, name, phone, inputPw, DBPw)
+            if (inputPw == DBPw) {
+                const updateData = JSON.stringify({
+                    memberId: id,
+                    memberEmail: email,
+                    memberName: name,
+                    memberPhone: phone,
+                    memberPassword: DBPw,
+                    memberFilename: filename
+                })
+                const reqURL = "/member/" + id
+                $.ajax({
+                    type: "put",
+                    data: updateData,
+                    url: reqURL,
+                    contentType: "application/json",
+                    success: function () {
+                        location.href = "/board/"
+                    },
+                    error: function () {
+                        alert("ajax 오류")
+                    }
+                })
+            } else {
+                alert("비밀번호가 틀렸습니다")
+            }
+        }
+    </script>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    li, ul, ol {
+        list-style: none;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        background-color: #f8f8f8;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    a:link {
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: black;
+    }
+
+    ::selection {
+        background-color: black;
+        color: white;
+    }
+
+    /*::placeholder {*/
+    /*    color: white;*/
+    /*}*/
+
+    .clear {
+        clear: both;
+    }
+
+    .wrap {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo {
+        margin: 40px 0;
+    }
+
+    .my_box {
+        width: 300px;
+        height: 100vh;
+    }
+
+    .inp {
+        display: block;
+        width: 100%;
+        height: 50px;
+        margin-bottom: 30px;
+        border-radius: 5px;
+        border: 1px solid black;
+        padding-left: 10px;
+    }
+
+    button {
+        width: 100%;
+        height: 50px;
+        margin-bottom: 30px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: 0.3s;
+        border: 1px solid black;
+    }
+
+    button:hover {
+        background-color: #ea2328;
+    }
+
+    input:nth-child(1) {
+        margin-top: 0px;
+    }
+    img {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+</style>
+<body>
+<div class="wrap">
+    <div class="logo">
+        <a href="index.html">
+            <img src="../../static/imgs/logo.png" alt="">
+        </a>
+    </div>
+    <div class="my_box">
+        <form action="/member/mypage" method="post">
+            <p>회원번호</p>
+            <input class="inp" type="text" th:value="${member.memberId}" id="memberId" name="memberId" readonly>
+            <p>이메일</p>
+            <input class="inp" type="hidden" th:value="${member.memberFilename}" id="memberFilename"
+                   name="memberFilename" readonly>
+            <input class="inp" type="text" th:value="${member.memberEmail}" id="memberEmail" name="memberEmail"
+                   readonly>
+            <p>아이디</p>
+            <input class="inp" type="text" th:value="${member.memberName}" id="memberName" name="memberName">
+            <p>전화번호</p>
+            <input class="inp" type="text" th:value="${member.memberPhone}" id="memberPhone" name="memberPhone">
+            <p>비밀번호</p>
+            <input class="inp" type="text" id="memberPassword" name="memberPassword" placeholder="새 비밀번호">
+        </form>
+        <img th:src="@{|/image/${member.memberFilename}|}" alt="">
+        <button onclick="update()">수정</button>
+    </div>
+</div>
+</body>
+</html>

@@ -5,27 +5,25 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/springbootclass?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: bootuser
+    url: jdbc:mysql://localhost:3306/marvel?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: choi
     password: 1234
   # cache값을 사용하지 않겠다는 의미
-  devtools:
-    livereload:
-      enabled: true
-  restart:
-    enabled: true
   thymeleaf:
     cache: false
-
   # JPA 관련 설정, datasource: 위치와 같은 위치에 작성해줘야함.
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
       # create : 실행할 때 마다 전체 재시작
       # update : 실행할 때 table drop 없이 실행.
       
-  
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
 
   

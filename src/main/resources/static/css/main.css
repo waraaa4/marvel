@@ -661,18 +661,6 @@ article:last-child {
     line-height: 20px;
 }
 
-@media (max-width: 1045px) {
-    .sec4_item_vod video {
-        transform: scale(2);
-    }
-}
-
-@media (max-width: 700px) {
-    .sec4_item_vod video {
-        transform: scale(3);
-    }
-}
-
 
 /* 섹션5 추천영화 */
 .section5_movie {
@@ -836,15 +824,77 @@ article:last-child {
     transition: 0.5s;
 }
 
+
+/* 푸터 */
+footer {
+    width: 100%;
+    height: 100px;
+    margin-top: 100px;
+    background-color: black;
+}
+
+footer > div {
+    max-width: 1250px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+footer > div > div:nth-child(2) i {
+    margin-left: 10px;
+}
+
+footer p {
+    color: white;
+}
+
+footer i {
+    font-size: 18px;
+    color: white;
+    transition: 0.5s;
+}
+
+footer i:hover {
+    color: #ea2328;
+}
+
+
+/* 미디어쿼리 */
+@media (max-width: 1280px) {
+    .logo a {
+        margin-left: 10px;
+    }
+
+    footer > div > div {
+        margin: 0 10px;
+    }
+}
+
 @media (max-width: 1250px) {
     .sec5_item:last-child {
         margin-right: 60px;
     }
 }
 
+@media (max-width: 1045px) {
+    .sec4_item_vod video {
+        transform: scale(2);
+    }
+}
+
 @media (max-width: 830px) {
     .sec5_item h3 {
         font-size: 12px;
+    }
+}
+
+@media (max-width: 700px) {
+    .sec4_item_vod video {
+        transform: scale(3);
     }
 }
 
@@ -1041,48 +1091,5 @@ article:last-child {
 
 }
 
-/* 푸터 */
-footer {
-    width: 100%;
-    height: 50px;
-    margin-top: 100px;
-    background-color: black;
-}
 
-footer > div {
-    max-width: 1250px;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: white;
-}
 
-footer > div > div:nth-child(2) i {
-    margin-left: 10px;
-}
-
-footer p {
-    color: white;
-}
-
-footer i {
-    color: white;
-    transition: 0.5s;
-}
-
-footer i:hover {
-    color: #ea2328;
-}
-
-@media (max-width: 1280px) {
-    .logo a {
-        margin-left: 10px;
-    }
-
-    footer > div > div {
-        margin: 0 10px;
-    }
-}
