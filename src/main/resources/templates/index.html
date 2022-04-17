@@ -36,14 +36,17 @@
             </div>
             <div class="lastNav">
                 <ul>
-                    <li>
+                    <li th:if="${session.loginId} == null">
                         <a href="/member/save">sign in</a>
                     </li>
                     <li>
                         <span>|</span>
                     </li>
-                    <li>
+                    <li th:if="${session.loginId} == null">
                         <a href="/member/login">join</a>
+                    </li>
+                    <li th:if="${session.loginId} != null">
+                        <a  href="/member/logout">로그아웃</a>
                     </li>
                     <li>
                         <a href="#">
@@ -539,14 +542,14 @@
 
         if (event.originalEvent.deltaY < 0 && !ani_img) {
             // wheeled up
-            $(".header").css({
+            $(".header").stop().css({
                 top: "0px"
-            }).stop()
+            })
         } else if (event.originalEvent.deltaY > 0 && !ani_img) {
             // wheeled down
-            $(".header").css({
+            $(".header").stop().css({
                 top: "-90px"
-            }).stop()
+            })
         }
     });
 

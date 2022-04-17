@@ -36,14 +36,17 @@
             </div>
             <div class="lastNav">
                 <ul>
-                    <li>
+                    <li th:if="${session.loginId} == null">
                         <a href="/member/save">sign in</a>
                     </li>
                     <li>
                         <span>|</span>
                     </li>
-                    <li>
+                    <li th:if="${session.loginId} == null">
                         <a href="/member/login">join</a>
+                    </li>
+                    <li th:if="${session.loginId} != null">
+                        <a href="/member/logout">로그아웃</a>
                     </li>
                     <li>
                         <a href="#">
@@ -76,7 +79,7 @@
         <div class="sec1_img"></div>
         <div class="sec1_title">
             <h1>MARVEL CHARACTERS</h1>
-            <p>기발하며 상상을 초월하는 초능력을 가진 영웅들의 능력정보와 서사를 알아보세요.</p>
+            <p>기발하며 상상을 초월하는 초능력을 가진 영웅들의 능력에 대한 정보와 서사를 알아보세요.</p>
         </div>
     </section>
 
@@ -88,20 +91,109 @@
         </div>
         <div class="sec2_box">
             <div class="sec2_item">
-                <div>
-                    <img src="" alt="">
-                </div>
-                <div>
-                    <span></span>
-                    <h2>캡틴 아메리카</h2>
-                    <p>스티븐 로저스</p>
-                </div>
+                <a href="#">
+                    <div class="sec2_item_img">
+                        <img src="../static/imgs/ch_ch1.png" alt="">
+                    </div>
+                    <div class="sec2_item_text">
+                        <span></span>
+                        <h2>캡틴 아메리카</h2>
+                        <p>스티븐 로저스</p>
+                    </div>
+                </a>
+            </div>
+            <div class="sec2_item">
+                <a href="#">
+                    <div class="sec2_item_img">
+                        <img src="../static/imgs/ch_ch2.png" alt="">
+                    </div>
+                    <div class="sec2_item_text">
+                        <span></span>
+                        <h2>아이언맨</h2>
+                        <p>토니 스타크</p>
+                    </div>
+                </a>
+            </div>
+            <div class="sec2_item">
+                <a href="#">
+                    <div class="sec2_item_img">
+                        <img src="../static/imgs/ch_ch3.png" alt="">
+                    </div>
+                    <div class="sec2_item_text">
+                        <span></span>
+                        <h2>토르</h2>
+                        <p>토르 오딘슨</p>
+                    </div>
+                </a>
+            </div>
+            <div class="sec2_item">
+                <a href="#">
+                    <div class="sec2_item_img">
+                        <img src="../static/imgs/ch_ch4.png" alt="">
+                    </div>
+                    <div class="sec2_item_text">
+                        <span></span>
+                        <h2>헐크</h2>
+                        <p>브루스 배너</p>
+                    </div>
+                </a>
+            </div>
+            <div class="sec2_item">
+                <a href="#">
+                    <div class="sec2_item_img">
+                        <img src="../static/imgs/ch_ch5.png" alt="">
+                    </div>
+                    <div class="sec2_item_text">
+                        <span></span>
+                        <h2>블랙 위도우</h2>
+                        <p>나타샤 로마노프</p>
+                    </div>
+                </a>
+            </div>
+            <div class="sec2_item">
+                <a href="#">
+                    <div class="sec2_item_img">
+                        <img src="../static/imgs/ch_ch6.png" alt="">
+                    </div>
+                    <div class="sec2_item_text">
+                        <span></span>
+                        <h2>앤트맨</h2>
+                        <p>스캇 랭</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
+    <!-- 섹션3 갤러리 -->
+    <section class="section3_gallery">
 
-
+        <div class="sec3_wrap">
+            <div class="sec3_btn sec3_leftBtn">
+                <i class="fa-solid fa-angle-left"></i>
+            </div>
+            <div class="sec3_galleryBox">
+                <div class="sec3_Box">
+                    <div class="sec3_item sec3_item1"></div>
+                    <div class="sec3_item sec3_item2"></div>
+                    <div class="sec3_item sec3_item3"></div>
+                    <div class="sec3_item sec3_item4"></div>
+                    <div class="sec3_item sec3_item5"></div>
+                    <div class="sec3_item sec3_item6"></div>
+                    <div class="sec3_item sec3_item7"></div>
+                </div>
+            </div>
+            <div class="sec3_btn sec3_rightBtn">
+                <i class="fa-solid fa-angle-right"></i>
+            </div>
+            <div class="sec3_pop">
+                <div class="sec3_pop_close">
+                    <i class="fa-solid fa-xmark fa-3x"></i>
+                </div>
+                <div class="sec3_pop_img">asd</div>
+            </div>
+        </div>
+    </section>
 
     <!-- 카피라이터 -->
     <footer>
@@ -122,4 +214,108 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="../static/bootstrap/js/bootstrap.js"></script>
 <script src="../static/js/jquery.mCustomScrollbar.js"></script>
+<script>
+
+    let num = 0;
+
+    // 윈도우 준비
+    $(document).ready(function () {
+        for (let i = 0; i <= 6; i++) {
+            $(".sec3_item").eq(i).stop()
+                .css({left: 260 * i});
+            // .css({"background":"url(../static/imgs/sec3_ch"+i+".png)"});
+        }
+
+        win_width_event();
+    });
+
+    // 윈도우 리사이즈
+    $(window).resize(function () {
+        win_width_event();
+    });
+
+
+    function win_width_event() {
+        let win_width = $(window).width()+17;
+        if (win_width <= 650) {
+            $(".firstNav").stop().fadeOut();
+            $(".lastNav").stop().fadeOut();
+            $(".ham").stop().fadeIn();
+
+        } else if (win_width > 650) {
+            $(".firstNav").stop().fadeIn();
+            $(".lastNav").stop().fadeIn();
+            $(".ham").stop().fadeOut();
+
+            $(".ham_close").stop().fadeOut();
+            $(".ham_pop").stop().fadeOut();
+        }
+    }
+
+    // 마우스 휠
+    $(window).on("wheel", function (event) {
+        // ani_img = $("html").is(":animated")  // :animated 움직이는 요소
+        // e.preventDefault() 는 고유 동작을 중단시키고,
+        // e.stopPropagation() 는 상위 엘리먼트들로의 이벤트 전파를 중단시킨다.
+        const ani_img = $("html").is(":animated")
+
+        if (event.originalEvent.deltaY < 0 && !ani_img) {
+            // wheeled up
+            $(".header").stop().css({
+                top: "0px"
+            })
+        } else if (event.originalEvent.deltaY > 0 && !ani_img) {
+            // wheeled down
+            $(".header").stop().css({
+                top: "-90px"
+            })
+        }
+    });
+
+    // 네비게이션 햄 버튼 클릭
+    $(".ham").click(function (){
+        $(".ham_close").stop().fadeIn();
+        $(".ham_pop").stop().fadeIn();
+        $(".ham").stop().fadeOut();
+    });
+    // 네비게이션 햄 클로즈 버튼 클릭
+    $(".ham_close").click(function (){
+        $(".ham_close").stop().fadeOut();
+        $(".ham_pop").stop().fadeOut();
+        $(".ham").stop().fadeIn();
+    });
+
+    // 섹션3 팝업 이미지 클릭
+    $(".sec3_item").click(function () {
+        let i = $(this).index();
+        $(".sec3_pop").stop().fadeIn();
+        $(".sec3_pop_img").stop().css({
+            "background":"url(../static/imgs/sec3_ch"+i+".png",
+            'background-repeat':'no-repeat',
+            'background-position':'center',
+            'background-size':'cover'
+        });
+    });
+    // 섹션3 팝업 클로즈 클릭
+    $(".sec3_pop_close").click(function () {
+        $(".sec3_pop").stop().fadeOut();
+    });
+
+    // 섹션3 슬라이드 왼쪽 버튼
+    $(".sec3_leftBtn").click(function () {
+        if (num > 0) {
+            num--
+            $(".sec3_Box").stop().animate({left: num * -260});
+        }
+    });
+    // 섹션3 슬라이드 오른쪽 버튼
+    $(".sec3_rightBtn").click(function () {
+        if (num < 3) {
+            num++
+            $(".sec3_Box").stop().animate({left: num * -260});
+        }
+    });
+
+
+</script>
 </html>
