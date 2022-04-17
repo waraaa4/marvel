@@ -48,11 +48,11 @@
                     <li th:if="${session.loginId} != null">
                         <a href="/member/logout">로그아웃</a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                    </li>
+                    <!--                    <li>-->
+                    <!--                        <a href="#">-->
+                    <!--                            <i class="fa-solid fa-magnifying-glass"></i>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
                 </ul>
             </div>
             <div class="ham">
@@ -86,7 +86,7 @@
     <!-- 섹션2 추천 캐릭터  -->
     <section class="section2_characters">
         <div class="sec_title">
-            <h1>추천 캐릭터</h1>
+            <h1>인기 캐릭터</h1>
             <span></span>
         </div>
         <div class="sec2_box">
@@ -167,7 +167,6 @@
 
     <!-- 섹션3 갤러리 -->
     <section class="section3_gallery">
-
         <div class="sec3_wrap">
             <div class="sec3_btn sec3_leftBtn">
                 <i class="fa-solid fa-angle-left"></i>
@@ -190,7 +189,67 @@
                 <div class="sec3_pop_close">
                     <i class="fa-solid fa-xmark fa-3x"></i>
                 </div>
-                <div class="sec3_pop_img">asd</div>
+                <div class="sec3_pop_img"></div>
+            </div>
+        </div>
+    </section>
+    <div class="sec3_bg"></div>
+
+    <!-- 섹션4 캐릭터 검색 -->
+    <section class="section4_search">
+        <div class="sec_title">
+            <h1>캐릭터 검색</h1>
+            <span></span>
+        </div>
+        <div class="sec4_box">
+            <div class="sec4_title">
+                <h1>영화별 검색</h1>
+                <ul>
+                    <li class="avengers">어벤져스</li>
+                    <li class="captain">캡틴 아메리카</li>
+                    <li class="iron">아이언맨</li>
+                    <li class="thor">토르</li>
+                    <li class="spider">스파이더맨</li>
+                    <li class="doctor">닥터 스트레인지</li>
+                </ul>
+            </div>
+            <div class="sec4_img_box">
+                <div id="input_form">
+                    <input type="search" id="keyword" placeholder=" 캐릭터 이름으로 검색...">
+                    <i id="keyword2" class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="sec4_img_item avengers captain">
+                    <div class="sec4_img_bg"></div>
+                    <p class="sec4_img_name">캡틴 아메리카</p>
+                </div>
+                <div class="sec4_img_item avengers iron">
+                    <div class="sec4_img_bg"></div>
+                    <p class="sec4_img_name">아이언맨</p>
+                </div>
+                <div class="sec4_img_item avengers thor">
+                    <div class="sec4_img_bg"></div>
+                    <p class="sec4_img_name">토르</p>
+                </div>
+                <div class="sec4_img_item avengers spider">
+                    <div class="sec4_img_bg"></div>
+                    <p class="sec4_img_name">스파이더맨</p>
+                </div>
+                <div class="sec4_img_item avengers captain">
+                    <div class="sec4_img_bg"></div>
+                    <p class="sec4_img_name">윈터 솔져</p>
+                </div>
+                <div class="sec4_img_item avengers thor">
+                    <div class="sec4_img_bg"></div>
+                    <p class="sec4_img_name">로키</p>
+                </div>
+                <div class="sec4_img_item avengers doctor">
+                    <div class="sec4_img_bg"></div>
+                    <p class="sec4_img_name">닥터 스트레인지</p>
+                </div>
+                <div class="sec4_img_item avengers doctor">
+                    <div class="sec4_img_bg"></div>
+                    <p class="sec4_img_name">스칼렛 위치</p>
+                </div>
             </div>
         </div>
     </section>
@@ -216,17 +275,35 @@
 <script src="../static/js/jquery.mCustomScrollbar.js"></script>
 <script>
 
+    // 섹션4 영화별 검색
+    $(".sec4_title li").click(function (){
+        let class_name = $(this).attr("class");
+        console.log(class_name)
+        $(".sec4_img_item").stop().hide();
+        $(".sec4_img_box ."+class_name).stop().show();
+    });
+
     let num = 0;
 
     // 윈도우 준비
     $(document).ready(function () {
         for (let i = 0; i <= 6; i++) {
-            $(".sec3_item").eq(i).stop()
-                .css({left: 260 * i});
+            $(".sec3_item").eq(i).stop().css({left: 260 * i});
             // .css({"background":"url(../static/imgs/sec3_ch"+i+".png)"});
         }
 
+        for (let b = 0; b <= 7; b++) {
+            $(".sec4_img_item").eq(b).find(".sec4_img_bg").stop().css({
+                "background": "url(../static/imgs/sec4_ch" + b + ".png",
+                'background-repeat': 'no-repeat',
+                'background-position': 'center',
+                'background-size': 'cover'
+            });
+
+        }
+
         win_width_event();
+
     });
 
     // 윈도우 리사이즈
@@ -234,9 +311,8 @@
         win_width_event();
     });
 
-
     function win_width_event() {
-        let win_width = $(window).width()+17;
+        let win_width = $(window).width() + 17;
         if (win_width <= 650) {
             $(".firstNav").stop().fadeOut();
             $(".lastNav").stop().fadeOut();
@@ -273,13 +349,13 @@
     });
 
     // 네비게이션 햄 버튼 클릭
-    $(".ham").click(function (){
+    $(".ham").click(function () {
         $(".ham_close").stop().fadeIn();
         $(".ham_pop").stop().fadeIn();
         $(".ham").stop().fadeOut();
     });
     // 네비게이션 햄 클로즈 버튼 클릭
-    $(".ham_close").click(function (){
+    $(".ham_close").click(function () {
         $(".ham_close").stop().fadeOut();
         $(".ham_pop").stop().fadeOut();
         $(".ham").stop().fadeIn();
@@ -289,16 +365,19 @@
     $(".sec3_item").click(function () {
         let i = $(this).index();
         $(".sec3_pop").stop().fadeIn();
+        $(".sec3_bg").stop().fadeIn();
         $(".sec3_pop_img").stop().css({
-            "background":"url(../static/imgs/sec3_ch"+i+".png",
-            'background-repeat':'no-repeat',
-            'background-position':'center',
-            'background-size':'cover'
+            "background": "url(../static/imgs/sec3_ch" + i + ".png",
+            'background-repeat': 'no-repeat',
+            'background-position': 'center',
+            'background-size': 'cover'
         });
+
     });
     // 섹션3 팝업 클로즈 클릭
     $(".sec3_pop_close").click(function () {
         $(".sec3_pop").stop().fadeOut();
+        $(".sec3_bg").stop().fadeOut();
     });
 
     // 섹션3 슬라이드 왼쪽 버튼
@@ -315,6 +394,29 @@
             $(".sec3_Box").stop().animate({left: num * -260});
         }
     });
+
+    // 섹션4 엔터키 누르거나 돋보기 눌러서 검색
+    $("#keyword").keyup(function (e) {
+        let name = $(this).val();
+        let temp = $(".sec4_img_name:contains('" + name + "')");
+
+        if (e.keyCode == 13) {
+            $(".sec4_img_item").hide();
+            $(temp).parent().show();
+            console.log(temp)
+        }
+
+        $("#keyword2").click(function (){
+            $(".sec4_img_item").hide();
+            $(temp).parent().show();
+        });
+
+    });
+
+
+
+
+
 
 
 </script>

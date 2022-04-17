@@ -271,7 +271,14 @@ header ul li span {
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto;
+    /*animation: main_box_img infinite 20s ;*/
 }
+
+/*@keyframes main_box_img{*/
+/*    0%{transform: scale(1);}*/
+/*    50%{transform: scale(1.05);}*/
+/*    100%{transform: scale(1);}*/
+/*}*/
 
 .main_img1 ul {
     top: 190px;
