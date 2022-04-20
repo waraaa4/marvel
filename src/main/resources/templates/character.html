@@ -5,9 +5,9 @@
     <title>Title</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/character.css">
-    <link rel="stylesheet" href="../static/css/jquery.mCustomScrollbar.css">
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/character.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/8ca221a456.js" crossorigin="anonymous"></script>
 </head>
@@ -17,8 +17,8 @@
     <header class="header">
         <nav>
             <div class="logo">
-                <a href="index.html">
-                    <img src="../static/imgs/logo.png" alt="">
+                <a href="/index">
+                    <img src="imgs/logo.png" alt="">
                 </a>
             </div>
             <div class="firstNav">
@@ -27,7 +27,7 @@
                         <a href="/character">characters</a>
                     </li>
                     <li>
-                        <a href="#">movies</a>
+                        <a href="/movie">movies</a>
                     </li>
                     <li>
                         <a href="/board/">community</a>
@@ -40,13 +40,16 @@
                         <a href="/member/save">sign in</a>
                     </li>
                     <li>
+                        <a th:if="${session.loginId} != null" th:href="@{|/member/mypage/${session.loginId}|}">마이페이지</a>
+                    </li>
+                    <li>
                         <span>|</span>
                     </li>
                     <li th:if="${session.loginId} == null">
                         <a href="/member/login">join</a>
                     </li>
                     <li th:if="${session.loginId} != null">
-                        <a href="/member/logout">로그아웃</a>
+                        <a  href="/member/logout">로그아웃</a>
                     </li>
                     <!--                    <li>-->
                     <!--                        <a href="#">-->
@@ -93,7 +96,7 @@
             <div class="sec2_item">
                 <a href="#">
                     <div class="sec2_item_img">
-                        <img src="../static/imgs/ch_ch1.png" alt="">
+                        <img src="imgs/ch_ch1.png" alt="">
                     </div>
                     <div class="sec2_item_text">
                         <span></span>
@@ -105,7 +108,7 @@
             <div class="sec2_item">
                 <a href="#">
                     <div class="sec2_item_img">
-                        <img src="../static/imgs/ch_ch2.png" alt="">
+                        <img src="imgs/ch_ch2.png" alt="">
                     </div>
                     <div class="sec2_item_text">
                         <span></span>
@@ -117,7 +120,7 @@
             <div class="sec2_item">
                 <a href="#">
                     <div class="sec2_item_img">
-                        <img src="../static/imgs/ch_ch3.png" alt="">
+                        <img src="imgs/ch_ch3.png" alt="">
                     </div>
                     <div class="sec2_item_text">
                         <span></span>
@@ -129,7 +132,7 @@
             <div class="sec2_item">
                 <a href="#">
                     <div class="sec2_item_img">
-                        <img src="../static/imgs/ch_ch4.png" alt="">
+                        <img src="imgs/ch_ch4.png" alt="">
                     </div>
                     <div class="sec2_item_text">
                         <span></span>
@@ -141,7 +144,7 @@
             <div class="sec2_item">
                 <a href="#">
                     <div class="sec2_item_img">
-                        <img src="../static/imgs/ch_ch5.png" alt="">
+                        <img src="imgs/ch_ch5.png" alt="">
                     </div>
                     <div class="sec2_item_text">
                         <span></span>
@@ -153,7 +156,7 @@
             <div class="sec2_item">
                 <a href="#">
                     <div class="sec2_item_img">
-                        <img src="../static/imgs/ch_ch6.png" alt="">
+                        <img src="imgs/ch_ch6.png" alt="">
                     </div>
                     <div class="sec2_item_text">
                         <span></span>
@@ -271,8 +274,8 @@
 </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="../static/bootstrap/js/bootstrap.js"></script>
-<script src="../static/js/jquery.mCustomScrollbar.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script src="js/jquery.mCustomScrollbar.js"></script>
 <script>
 
     // 섹션4 영화별 검색
@@ -289,12 +292,12 @@
     $(document).ready(function () {
         for (let i = 0; i <= 6; i++) {
             $(".sec3_item").eq(i).stop().css({left: 260 * i});
-            // .css({"background":"url(../static/imgs/sec3_ch"+i+".png)"});
+            // .css({"background":"url(imgs/sec3_ch"+i+".png)"});
         }
 
         for (let b = 0; b <= 7; b++) {
             $(".sec4_img_item").eq(b).find(".sec4_img_bg").stop().css({
-                "background": "url(../static/imgs/sec4_ch" + b + ".png",
+                "background": "url(imgs/sec4_ch" + b + ".png",
                 'background-repeat': 'no-repeat',
                 'background-position': 'center',
                 'background-size': 'cover'
@@ -366,7 +369,7 @@
         $(".sec3_pop").stop().fadeIn();
         $(".sec3_bg").stop().fadeIn();
         $(".sec3_pop_img").stop().css({
-            "background": "url(../static/imgs/sec3_ch" + i + ".png",
+            "background": "url(imgs/sec3_ch" + i + ".png",
             'background-repeat': 'no-repeat',
             'background-position': 'center',
             'background-size': 'cover'

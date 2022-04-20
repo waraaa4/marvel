@@ -5,9 +5,9 @@
     <title>Title</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/movie.css">
-    <link rel="stylesheet" href="../static/css/jquery.mCustomScrollbar.css">
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/movie.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/8ca221a456.js" crossorigin="anonymous"></script>
 </head>
@@ -17,8 +17,8 @@
     <header class="header">
         <nav>
             <div class="logo">
-                <a href="index.html">
-                    <img src="../static/imgs/logo.png" alt="">
+                <a href="/index">
+                    <img src="imgs/logo.png" alt="">
                 </a>
             </div>
             <div class="firstNav">
@@ -27,7 +27,7 @@
                         <a href="/character">characters</a>
                     </li>
                     <li>
-                        <a href="#">movies</a>
+                        <a href="/movie">movies</a>
                     </li>
                     <li>
                         <a href="/board/">community</a>
@@ -40,13 +40,16 @@
                         <a href="/member/save">sign in</a>
                     </li>
                     <li>
+                        <a th:if="${session.loginId} != null" th:href="@{|/member/mypage/${session.loginId}|}">마이페이지</a>
+                    </li>
+                    <li>
                         <span>|</span>
                     </li>
                     <li th:if="${session.loginId} == null">
                         <a href="/member/login">join</a>
                     </li>
                     <li th:if="${session.loginId} != null">
-                        <a href="/member/logout">로그아웃</a>
+                        <a  href="/member/logout">로그아웃</a>
                     </li>
                     <!--                    <li>-->
                     <!--                        <a href="#">-->
@@ -140,69 +143,69 @@
         <div class="sec3_movie_box sec3_movie_box1">
             <div class="sec3_movie_item sec3_movie_item1">
                 <div class="sec3_movie_item1_1" title="톰 홀랜드와 젠데이아의 인터뷰">
-                    <img src="../static/imgs/sec3_sp0.png" alt="">
+                    <img src="imgs/sec3_sp0.png" alt="">
                 </div>
             </div>
             <div class="sec3_movie_item sec3_movie_item2">
                 <div class="sec3_movie_item2_1" title="스파이더맨 굿즈 판매">
-                    <img src="../static/imgs/sec3_sp1.png" alt="">
+                    <img src="imgs/sec3_sp1.png" alt="">
                 </div>
                 <div class="sec3_movie_item2_2" title="인터뷰 도중 비밀폭로">
-                    <img src="../static/imgs/sec3_sp2.png" alt="">
+                    <img src="imgs/sec3_sp2.png" alt="">
                 </div>
             </div>
             <div class="sec3_movie_item sec3_movie_item3">
                 <div class="sec3_movie_item3_1" title="공식 예고편">
-                    <img src="../static/imgs/sec3_sp3.png" alt="">
+                    <img src="imgs/sec3_sp3.png" alt="">
                 </div>
                 <div class="sec3_movie_item3_2" title="스파이더맨 시사회에 참석한 톰 홀랜드">
-                    <img src="../static/imgs/sec3_sp4.png" alt="">
+                    <img src="imgs/sec3_sp4.png" alt="">
                 </div>
             </div>
         </div>
         <div class="sec3_movie_box sec3_movie_box2">
             <div class="sec3_movie_item sec3_movie_item1">
                 <div class="sec3_movie_item1_1" title="닥터 스트레인지 공식 포스터">
-                    <img src="../static/imgs/sec3_dr0.png" alt="">
+                    <img src="imgs/sec3_dr0.png" alt="">
                 </div>
             </div>
             <div class="sec3_movie_item sec3_movie_item2">
                 <div class="sec3_movie_item2_1" title="공식 예고편">
-                    <img src="../static/imgs/sec3_dr1.png" alt="">
+                    <img src="imgs/sec3_dr1.png" alt="">
                 </div>
                 <div class="sec3_movie_item2_2" title="닥터 스트레인지 굿즈 판매">
-                    <img src="../static/imgs/sec3_dr2.png" alt="">
+                    <img src="imgs/sec3_dr2.png" alt="">
                 </div>
             </div>
             <div class="sec3_movie_item sec3_movie_item3">
                 <div class="sec3_movie_item3_1" title="제 3의 눈을 사용하는 포스터">
-                    <img src="../static/imgs/sec3_dr3.png" alt="">
+                    <img src="imgs/sec3_dr3.png" alt="">
                 </div>
                 <div class="sec3_movie_item3_2" title="팬아트 콘서트 발표">
-                    <img src="../static/imgs/sec3_dr4.png" alt="">
+                    <img src="imgs/sec3_dr4.png" alt="">
                 </div>
             </div>
         </div>
         <div class="sec3_movie_box sec3_movie_box3">
             <div class="sec3_movie_item sec3_movie_item1">
                 <div class="sec3_movie_item1_1" title="공식 예고편">
-                    <img src="../static/imgs/sec3_tr0.png" alt="">
+                    <img src="imgs/sec3_tr0.png" alt="">
                 </div>
             </div>
             <div class="sec3_movie_item sec3_movie_item2">
                 <div class="sec3_movie_item2_1" title="로키 인터뷰">
-                    <img src="../static/imgs/sec3_tr1.png" alt="">
+                    <img src="imgs/sec3_tr1.png" alt="">
                 </div>
                 <div class="sec3_movie_item2_2" title="감독 인터뷰">
-                    <img src="../static/imgs/sec3_tr2.png" alt="">
+                    <img src="imgs/sec3_tr2.png" alt="">
                 </div>
             </div>
             <div class="sec3_movie_item sec3_movie_item3">
                 <div class="sec3_movie_item3_1" title="서로 농담을 주고받는 포토">
-                    <img src="../static/imgs/sec3_tr3.png" alt="">
+                    <img src="imgs/sec3_tr3.png" alt="">
                 </div>
                 <div class="sec3_movie_item3_2" title="cg 적용전 촬영 모습">
-                    <img src="../static/imgs/sec3_tr4.png" alt="">
+                    <img src="imgs/sec3_tr4.png" alt="">
                 </div>
             </div>
         </div>
@@ -284,8 +287,8 @@
 </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="../static/bootstrap/js/bootstrap.js"></script>
-<script src="../static/js/jquery.mCustomScrollbar.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script src="js/jquery.mCustomScrollbar.js"></script>
 <script>
 
     let num = 0;
@@ -295,7 +298,7 @@
 
         for (let b = 0; b <= 6; b++) {
             $(".sec2_item").eq(b).find(".sec2_item_img").stop().css({
-                "background": "url(../static/imgs/movie_mo" + b + ".png",
+                "background": "url(imgs/movie_mo" + b + ".png",
                 'background-repeat': 'no-repeat',
                 'background-position': 'center',
                 'background-size': 'cover'
@@ -308,7 +311,7 @@
         // 섹션4 이미지 배치
         for (let b = 0; b <= 7; b++) {
             $(".sec4_img_item").eq(b).find(".sec4_img_bg").stop().css({
-                "background": "url(../static/imgs/sec4_movie" + b + ".png",
+                "background": "url(imgs/sec4_movie" + b + ".png",
                 'background-repeat': 'no-repeat',
                 'background-position': 'center',
                 'background-size': 'cover'
@@ -382,7 +385,7 @@
         console.log($(".sec3_movie_box").eq(num))
 
         $(".sec3_bg_img div").stop().css({
-            "background": "url(../static/imgs/sec3_mo_" + num + ".png",
+            "background": "url(imgs/sec3_mo_" + num + ".png",
             'background-repeat': 'no-repeat',
             'background-position': 'center',
             'background-size': 'cover'

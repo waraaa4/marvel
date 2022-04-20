@@ -240,7 +240,7 @@ header ul li span {
 
 .sec2_select select {
     width: 70px;
-    height: 32px;
+    height: 30px;
     border: 0px;
     border: 1px solid #797979;
 }
@@ -257,11 +257,11 @@ header ul li span {
 
 .sec2_select input:nth-child(3) {
     width: 50px;
-    height: 32px;
+    height: 30px;
     border: 1px solid #797979;
     background-color: white;
     cursor: pointer;
-    top: 1px;
+    top: -1px;
     left: -9px;
 }
 

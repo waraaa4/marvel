@@ -5,9 +5,9 @@
     <title>Title</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/main.css">
-    <link rel="stylesheet" href="../static/css/jquery.mCustomScrollbar.css">
-    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/8ca221a456.js" crossorigin="anonymous"></script>
 </head>
@@ -17,8 +17,8 @@
     <header class="header">
         <nav>
             <div class="logo">
-                <a href="index.html">
-                    <img src="../static/imgs/logo.png" alt="">
+                <a href="/index">
+                    <img src="/imgs/logo.png" alt="">
                 </a>
             </div>
             <div class="firstNav">
@@ -27,7 +27,7 @@
                         <a href="/character">characters</a>
                     </li>
                     <li>
-                        <a href="#">movies</a>
+                        <a href="/movie">movies</a>
                     </li>
                     <li>
                         <a href="/board/">community</a>
@@ -40,6 +40,9 @@
                         <a href="/member/save">sign in</a>
                     </li>
                     <li>
+                        <a th:if="${session.loginId} != null" th:href="@{|/member/mypage/${session.loginId}|}">마이페이지</a>
+                    </li>
+                    <li>
                         <span>|</span>
                     </li>
                     <li th:if="${session.loginId} == null">
@@ -48,11 +51,11 @@
                     <li th:if="${session.loginId} != null">
                         <a  href="/member/logout">로그아웃</a>
                     </li>
-<!--                    <li>-->
-<!--                        <a href="#">-->
-<!--                            <i class="fa-solid fa-magnifying-glass"></i>-->
-<!--                        </a>-->
-<!--                    </li>-->
+                    <!--                    <li>-->
+                    <!--                        <a href="#">-->
+                    <!--                            <i class="fa-solid fa-magnifying-glass"></i>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
                 </ul>
             </div>
             <div class="ham">
@@ -80,7 +83,7 @@
             <div class="main_box main_box1 carousel-item active">
                 <div class="main_img main_img1">
                     <ul>
-                        <li><img src="../static/imgs/main1_1.png" alt=""></li>
+                        <li><img src="imgs/main1_1.png" alt=""></li>
                         <li>인피니티 워 이후 절반만 살아남은 지구 마지막 희망이 된 어벤져스 먼저 떠난 그들을 위해 모든 것을 걸었다.<br>
                             위대한 어벤져스 운명을 바꿀 최후의 전쟁이 펼쳐진다!
                         </li>
@@ -91,7 +94,7 @@
             <div class="main_box main_box2 carousel-item">
                 <div class="main_img main_img2">
                     <ul>
-                        <li><img src="../static/imgs/main2_1.png" alt=""></li>
+                        <li><img src="imgs/main2_1.png" alt=""></li>
                         <li>‘미스테리오’의 계략으로 세상에 정체가 탄로난 스파이더맨 ‘피터 파커’는 하루 아침에 평범한 일상을 잃게 된다.<br>
                             문제를 해결하기 위해 ‘닥터 스트레인지’를 찾아가 도움을 청하지만 뜻하지 않게 멀티버스가 열리면서 각기 다른 차원의 불청객들이 나타난다.
                         </li>
@@ -102,7 +105,7 @@
             <div class="main_box main_box3 carousel-item">
                 <div class="main_img main_img3">
                     <ul>
-                        <li><img src="../static/imgs/main3_1.png" alt=""></li>
+                        <li><img src="imgs/main3_1.png" alt=""></li>
                         <li>죽음의 여신 ‘헬라’가 아스가르드를 침략하고, 세상은 모든 것의 종말 ‘라그나로크’의 위기에 처한다.<br>
                             헬라에게 자신의 망치마저 파괴당한 토르는 어벤져스 동료인 헐크와도 피할 수 없는 대결을벌이면서 절체절명의 위기에 빠지게 되는데…
                         </li>
@@ -129,7 +132,7 @@
         <div class="sec2_itemBox sec2_itemBox1">
             <div class="sec2_item sec2_item1">
                 <a href="">
-                    <img src="../static/imgs/news1.png" alt="">
+                    <img src="imgs/news1.png" alt="">
                     <ul>
                         <li>가디언즈 갤럭시 VOL.3</li>
                         <li>가디언즈 오브 갤럭시 실사영화 시리즈의 마지막 영화가 6년만에 개봉을 한다.</li>
@@ -138,7 +141,7 @@
             </div>
             <div class="sec2_item sec2_item2">
                 <a href="">
-                    <img src="../static/imgs/news2.png" alt="">
+                    <img src="imgs/news2.png" alt="">
                     <ul>
                         <li>팔콘과 윈터 솔져</li>
                         <li>2세대 캡틴아메리카의 이야기가 디즈니+에서 방영한다.</li>
@@ -147,7 +150,7 @@
             </div>
             <div class="sec2_item sec2_item3">
                 <a href="">
-                    <img src="../static/imgs/news3.png" alt="">
+                    <img src="imgs/news3.png" alt="">
                     <ul>
                         <li>닥터 스트레인지: 대혼돈의 멀티버스</li>
                         <li>닥터 스트레인지 2는 완다비전 이후 2년 후를 배경으로 진행될 것이라고 한다.</li>
@@ -158,7 +161,7 @@
         <div class="sec2_itemBox sec2_itemBox2">
             <div class="sec2_item sec2_item4">
                 <a href="">
-                    <img src="../static/imgs/news4.png" alt="">
+                    <img src="imgs/news4.png" alt="">
                     <ul>
                         <li>스파이더맨: 노 웨이 홈</li>
                         <li>스파이더맨 블루레이 에디션이 2022년 4월 30일경에 출시 될 예정이다.</li>
@@ -167,7 +170,7 @@
             </div>
             <div class="sec2_item sec2_item5">
                 <a href="">
-                    <img src="../static/imgs/news5.png" alt="">
+                    <img src="imgs/news5.png" alt="">
                     <ul>
                         <li>블랙팬서: 와칸다 포에버 제작 발표</li>
                         <li>기존의 캐릭터들과 와칸다를 좀 더 탐구하는 쪽으로 이야기를 꾸릴 것이라고 한다.
@@ -191,10 +194,10 @@
                     <!--                            allowfullscreen>-->
                     <!--                    </iframe>-->
                     <video class="sec3_vod sec3_vod1 sec3_play" id="c0" preload="auto" muted>
-                        <source src="../static/vod/sec3_vod1.mp4" type="video/mp4">
+                        <source src="vod/sec3_vod1.mp4" type="video/mp4">
                     </video>
                     <div class="sec3_item_play">
-                        <img src="../static/imgs/outline_play_circle_white_48dp.png" alt="">
+                        <img src="imgs/outline_play_circle_white_48dp.png" alt="">
                     </div>
                     <div class="sec3_item_black"></div>
                     <div class="sec3_title sec3_title1">
@@ -211,10 +214,10 @@
                     <!--                            allowfullscreen>-->
                     <!--                    </iframe>-->
                     <video class="sec3_vod sec3_vod2" id="c1" preload="auto" muted>
-                        <source src="../static/vod/sec3_vod2.mp4" type="video/mp4">
+                        <source src="vod/sec3_vod2.mp4" type="video/mp4">
                     </video>
                     <div class="sec3_item_play">
-                        <img src="../static/imgs/outline_play_circle_white_48dp.png" alt="">
+                        <img src="imgs/outline_play_circle_white_48dp.png" alt="">
                     </div>
                     <div class="sec3_item_black"></div>
                     <div class="sec3_title">
@@ -231,10 +234,10 @@
                     <!--                            allowfullscreen>-->
                     <!--                    </iframe>-->
                     <video class="sec3_vod sec3_vod3" id="c2" preload="auto" muted>
-                        <source src="../static/vod/sec3_vod3.mp4" type="video/mp4">
+                        <source src="vod/sec3_vod3.mp4" type="video/mp4">
                     </video>
                     <div class="sec3_item_play">
-                        <img src="../static/imgs/outline_play_circle_white_48dp.png" alt="">
+                        <img src="imgs/outline_play_circle_white_48dp.png" alt="">
                     </div>
                     <div class="sec3_item_black"></div>
                     <div class="sec3_title">
@@ -251,10 +254,10 @@
                     <!--                            allowfullscreen>-->
                     <!--                    </iframe>-->
                     <video class="sec3_vod sec3_vod4" id="c3" preload="auto" muted>
-                        <source src="../static/vod/sec3_vod4.mp4" type="video/mp4">
+                        <source src="vod/sec3_vod4.mp4" type="video/mp4">
                     </video>
                     <div class="sec3_item_play">
-                        <img src="../static/imgs/outline_play_circle_white_48dp.png" alt="">
+                        <img src="imgs/outline_play_circle_white_48dp.png" alt="">
                     </div>
                     <div class="sec3_item_black"></div>
                     <div class="sec3_title">
@@ -271,10 +274,10 @@
                     <!--                            allowfullscreen>-->
                     <!--                    </iframe>-->
                     <video class="sec3_vod sec3_vod5" id="c4" preload="auto" muted>
-                        <source src="../static/vod/sec3_vod5.mp4" type="video/mp4">
+                        <source src="vod/sec3_vod5.mp4" type="video/mp4">
                     </video>
                     <div class="sec3_item_play">
-                        <img src="../static/imgs/outline_play_circle_white_48dp.png" alt="">
+                        <img src="imgs/outline_play_circle_white_48dp.png" alt="">
                     </div>
                     <div class="sec3_item_black"></div>
                     <div class="sec3_title">
@@ -326,11 +329,11 @@
         <div class="sec4_box">
             <article>
                 <div class="sec4_item_img">
-                    <img src="../static/imgs/ch1.png" alt="">
+                    <img src="imgs/ch1.png" alt="">
                 </div>
                 <a href="#" class="sec4_item_vod">
                     <video loop preload="auto" id="v0" muted>
-                        <source src="../static/vod/vod1.mp4" type="video/mp4">
+                        <source src="vod/vod1.mp4" type="video/mp4">
                     </video>
                     <div class="sec4_item_title">
                         <h3>캡틴 아메리카</h3>
@@ -342,11 +345,11 @@
             </article>
             <article>
                 <div class="sec4_item_img">
-                    <img src="../static/imgs/ch2.png" alt="">
+                    <img src="imgs/ch2.png" alt="">
                 </div>
                 <a href="#" class="sec4_item_vod">
                     <video loop preload="auto" id="v1" muted>
-                        <source src="../static/vod/vod2.mp4" type="video/mp4">
+                        <source src="vod/vod2.mp4" type="video/mp4">
                     </video>
                     <div class="sec4_item_title">
                         <h3>아이언맨</h3>
@@ -358,11 +361,11 @@
             </article>
             <article>
                 <div class="sec4_item_img">
-                    <img src="../static/imgs/ch3.png" alt="">
+                    <img src="imgs/ch3.png" alt="">
                 </div>
                 <a href="#" class="sec4_item_vod">
                     <video loop preload="auto" id="v2" muted>
-                        <source src="../static/vod/vod3.mp4" type="video/mp4">
+                        <source src="vod/vod3.mp4" type="video/mp4">
                     </video>
                     <div class="sec4_item_title">
                         <h3>토르</h3>
@@ -374,11 +377,11 @@
             </article>
             <article>
                 <div class="sec4_item_img">
-                    <img src="../static/imgs/ch4.png" alt="">
+                    <img src="imgs/ch4.png" alt="">
                 </div>
                 <a href="#" class="sec4_item_vod">
                     <video loop preload="auto" id="v3" muted>
-                        <source src="../static/vod/vod4.mp4" type="video/mp4">
+                        <source src="vod/vod4.mp4" type="video/mp4">
                     </video>
                     <div class="sec4_item_title">
                         <h3>앤트맨</h3>
@@ -390,11 +393,11 @@
             </article>
             <article>
                 <div class="sec4_item_img">
-                    <img src="../static/imgs/ch5.png" alt="">
+                    <img src="imgs/ch5.png" alt="">
                 </div>
                 <a href="#" class="sec4_item_vod">
                     <video loop preload="auto" id="v4" muted>
-                        <source src="../static/vod/vod5.mp4" type="video/mp4">
+                        <source src="vod/vod5.mp4" type="video/mp4">
                     </video>
                     <div class="sec4_item_title">
                         <h3>헐크</h3>
@@ -418,7 +421,7 @@
             <div class="sec5_title">
                 <ul>
                     <li>
-                        <img src="../static/imgs/movie_img.png" alt="">
+                        <img src="imgs/movie_img.png" alt="">
                     </li>
                     <li>
                         <h1>추천영화</h1>
@@ -440,31 +443,31 @@
         <div class="sec5_itemBox">
             <div class="sec5_item">
                 <a href="#">
-                    <img src="../static/imgs/sec5_img1.png" alt="">
+                    <img src="imgs/sec5_img1.png" alt="">
                     <h3>캡틴 아메리카: 시빌 워</h3>
                 </a>
             </div>
             <div class="sec5_item">
                 <a href="#">
-                    <img src="../static/imgs/sec5_img2.png" alt="">
+                    <img src="imgs/sec5_img2.png" alt="">
                     <h3>아이언맨3</h3>
                 </a>
             </div>
             <div class="sec5_item">
                 <a href="#">
-                    <img src="../static/imgs/sec5_img3.png" alt="">
+                    <img src="imgs/sec5_img3.png" alt="">
                     <h3>토르: 라그나로크</h3>
                 </a>
             </div>
             <div class="sec5_item">
                 <a href="#">
-                    <img src="../static/imgs/sec5_img4.png" alt="">
+                    <img src="imgs/sec5_img4.png" alt="">
                     <h3>앤트맨: 와스프</h3>
                 </a>
             </div>
             <div class="sec5_item">
                 <a href="#">
-                    <img src="../static/imgs/sec5_img5.png" alt="">
+                    <img src="imgs/sec5_img5.png" alt="">
                     <h3>스파이더맨: 노웨이홈</h3>
                 </a>
             </div>
@@ -487,8 +490,8 @@
 </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="../static/bootstrap/js/bootstrap.js"></script>
-<script src="../static/js/jquery.mCustomScrollbar.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script src="js/jquery.mCustomScrollbar.js"></script>
 <script>
     // 윈도우 준비
     $(document).ready(function () {

@@ -2,9 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet">
-<link rel="stylesheet" href="../../static/css/community.css">
-<link rel="stylesheet" href="../../static/css/jquery.mCustomScrollbar.css">
-<link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="../css/community.css">
+<link rel="stylesheet" href="../css/jquery.mCustomScrollbar.css">
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="https://kit.fontawesome.com/8ca221a456.js" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -15,8 +15,8 @@
 <header class="header">
     <nav>
         <div class="logo">
-            <a href="index.html">
-                <img src="../static/imgs/logo.png" alt="">
+            <a href="/index">
+                <img src="imgs/logo.png" alt="">
             </a>
         </div>
         <div class="firstNav">
@@ -38,13 +38,16 @@
                     <a href="/member/save">sign in</a>
                 </li>
                 <li>
+                    <a th:if="${session.loginId} != null" th:href="@{|/member/mypage/${session.loginId}|}">마이페이지</a>
+                </li>
+                <li>
                     <span>|</span>
                 </li>
                 <li th:if="${session.loginId} == null">
                     <a href="/member/login">join</a>
                 </li>
                 <li th:if="${session.loginId} != null">
-                    <a href="/member/logout">로그아웃</a>
+                    <a  href="/member/logout">로그아웃</a>
                 </li>
                 <!--                    <li>-->
                 <!--                        <a href="#">-->
@@ -93,8 +96,8 @@
             <input type="submit" th:value="검색">
         </form>
         <div class="sec2_btn_item">
-            <a href="#">글작성</a>
-            <a th:href="@{|/member/mypage/${session.loginId}|}">마이페이지</a>
+            <a th:if="${session.loginId} != null" href="/board/save">글작성</a>
+            <a th:if="${session.loginId} != null" th:href="@{|/member/mypage/${session.loginId}|}">마이페이지</a>
         </div>
     </div>
     <div class="sec2_box">
@@ -164,8 +167,8 @@
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="../../static/bootstrap/js/bootstrap.js"></script>
-<script src="../../static/js/jquery.mCustomScrollbar.js"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
+<script src="../js/jquery.mCustomScrollbar.js"></script>
 <script>
 
     let num = 0;
