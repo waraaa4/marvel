@@ -536,7 +536,8 @@ header ul li span {
 
 .sec4_img_item {
     width: 204px;
-    height: 230px;
+    /*height: 230px;*/
+    height: 300px;
     cursor: pointer;
     margin-top: 15px;
     margin-right: 15px;
@@ -545,7 +546,6 @@ header ul li span {
 
 .sec4_img_item:hover .sec4_img_bg {
     transform: scale(0.98);
-    transition: 0.5s;
 }
 
 .sec4_img_item:hover .sec4_img_name {
