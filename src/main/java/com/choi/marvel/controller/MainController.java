@@ -17,4 +17,10 @@ public class MainController {
         return "character";
     }
 
+    @GetMapping("/movie")
+    public String movie() {
+        return "movie";
+    }
+
+
 }
